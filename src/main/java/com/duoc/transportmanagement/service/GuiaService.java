@@ -69,6 +69,27 @@ public class GuiaService {
         guia.setEstado("GENERADA");
         guia.setTransportista(transportista);
 
+        String nombreTransportista = transportista.getNombre()
+                .toLowerCase()
+                .replace(" ", "-");
+
+        String rutaEfs =
+                "/app/efs/guias/guia_" +
+                        dto.getNumeroGuia() +
+                        ".txt";
+
+        String rutaS3 =
+                "guias/" +
+                        LocalDate.now().getYear() + "/" +
+                        String.format("%02d", LocalDate.now().getMonthValue()) + "/" +
+                        nombreTransportista +
+                        "/guia_" +
+                        dto.getNumeroGuia() +
+                        ".txt";
+
+        guia.setRutaEfs(rutaEfs);
+        guia.setRutaS3(rutaS3);
+
         guiaRepository.save(guia);
 
         return toDTO(guia);
