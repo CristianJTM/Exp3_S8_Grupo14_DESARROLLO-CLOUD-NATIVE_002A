@@ -52,6 +52,14 @@ public class GuiaService {
         return toDTO(guia);
     }
 
+    public List<GuiaResumenDTO> findByFecha(LocalDate fecha) {
+
+        return guiaRepository.findByFechaGeneracion(fecha)
+                .stream()
+                .map(this::toResumenDTO)
+                .toList();
+    }
+
     public GuiaDTO createGuia(GuiaCreateDTO dto) {
 
         Transportista transportista =
@@ -82,6 +90,7 @@ public class GuiaService {
                 "guias/" +
                         LocalDate.now().getYear() + "/" +
                         String.format("%02d", LocalDate.now().getMonthValue()) + "/" +
+                        String.format("%02d", LocalDate.now().getDayOfMonth()) + "/" +
                         nombreTransportista +
                         "/guia_" +
                         dto.getNumeroGuia() +
@@ -219,6 +228,8 @@ public class GuiaService {
                 fecha.getYear()
                         + "/"
                         + String.format("%02d", fecha.getMonthValue())
+                        + "/"
+                        + String.format("%02d", LocalDate.now().getDayOfMonth())
                         + "/"
                         + guia.getTransportista().getNombre()
                         + "/"
