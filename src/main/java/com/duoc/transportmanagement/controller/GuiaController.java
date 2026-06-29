@@ -98,7 +98,7 @@ public class GuiaController {
     }
 
     // POST - Subir a S3
-    @PostMapping("/{id}/s3")
+    @PostMapping("/s3/{id}")
     public ResponseEntity<String> subirArchivoS3(
             @PathVariable Long id) {
 
