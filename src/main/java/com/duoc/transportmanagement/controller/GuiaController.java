@@ -134,7 +134,7 @@ public class GuiaController {
     }
 
     // DELETE - Eliminar archivo S3
-    @DeleteMapping("/{id}/s3")
+    @DeleteMapping("/s3/{id}")
     public ResponseEntity<Void> eliminarArchivoS3(
             @PathVariable Long id) {
 
