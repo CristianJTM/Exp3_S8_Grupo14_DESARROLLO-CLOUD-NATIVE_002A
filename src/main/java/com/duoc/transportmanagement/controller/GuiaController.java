@@ -108,7 +108,7 @@ public class GuiaController {
     }
 
     // PUT - Actualizar archivo en S3
-    @PutMapping("/{id}/s3")
+    @PutMapping("/s3/{id}")
     public ResponseEntity<String> actualizarArchivoS3(
             @PathVariable Long id,
             @RequestBody GuiaUpdateDTO dto) {
