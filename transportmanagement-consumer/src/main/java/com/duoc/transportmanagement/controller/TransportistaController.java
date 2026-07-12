@@ -35,35 +35,4 @@ public class TransportistaController {
         );
     }
 
-    // POST - Crear transportista
-    @PostMapping
-    public ResponseEntity<TransportistaResumenDTO> saveTransportista(
-            @RequestBody TransportistaDTO dto) {
-
-        return ResponseEntity.status(201)
-                .body(
-                        transportistaService.saveTransportista(dto)
-                );
-    }
-
-    // PUT - Modificar transportista
-    @PutMapping("/{id}")
-    public ResponseEntity<TransportistaResumenDTO> updateTransportista(
-            @PathVariable Long id,
-            @RequestBody TransportistaDTO dto) {
-
-        return ResponseEntity.ok(
-                transportistaService.updateTransportista(id, dto)
-        );
-    }
-
-    // DELETE - Eliminar transportista
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTransportista(
-            @PathVariable Long id) {
-
-        transportistaService.deleteTransportista(id);
-
-        return ResponseEntity.noContent().build();
-    }
 }
