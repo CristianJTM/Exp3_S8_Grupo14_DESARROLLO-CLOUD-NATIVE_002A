@@ -37,7 +37,7 @@ public class GuiaController {
 
     // POST - Crear guía
     @PostMapping
-    public ResponseEntity<GuiaDTO> createGuia(
+    public ResponseEntity<String> createGuia(
             @RequestBody GuiaCreateDTO dto) {
 
         return ResponseEntity.status(201)
@@ -48,7 +48,7 @@ public class GuiaController {
 
     // PUT - Actualizar guía
     @PutMapping("/{id}")
-    public ResponseEntity<GuiaDTO> updateGuia(
+    public ResponseEntity<String> updateGuia(
             @PathVariable Long id,
             @RequestBody GuiaUpdateDTO dto) {
 
@@ -59,12 +59,12 @@ public class GuiaController {
 
     // DELETE - Eliminar guía
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteGuia(
+    public ResponseEntity<String> deleteGuia(
             @PathVariable Long id) {
 
-        guiaService.deleteGuia(id);
-
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(
+                guiaService.deleteGuia(id)
+        );
     }
 
     // GET - Guías por transportista
@@ -84,16 +84,6 @@ public class GuiaController {
 
         return ResponseEntity.ok(
                 guiaService.findByFecha(fecha)
-        );
-    }
-
-    // POST - Generar TXT en EFS
-    @PostMapping("/{id}/generar")
-    public ResponseEntity<ArchivoDTO> generarArchivo(
-            @PathVariable Long id) {
-
-        return ResponseEntity.ok(
-                guiaService.generarArchivo(id)
         );
     }
 
@@ -120,22 +110,17 @@ public class GuiaController {
 
     // GET - Descargar archivo
     @GetMapping("/s3/{id}")
-    public ResponseEntity<byte[]> descargarArchivo(
+    public ResponseEntity<String> descargarArchivo(
             @PathVariable Long id) {
 
-        byte[] archivo = guiaService.descargarArchivo(id);
-
-        return ResponseEntity.ok()
-                .header(
-                        "Content-Disposition",
-                        "attachment; filename=guia_" + id + ".txt"
-                )
-                .body(archivo);
+        return ResponseEntity.ok(
+                guiaService.descargarArchivo(id)
+        );
     }
 
     // DELETE - Eliminar archivo S3
     @DeleteMapping("/s3/{id}")
-    public ResponseEntity<Void> eliminarArchivoS3(
+    public ResponseEntity<String> eliminarArchivoS3(
             @PathVariable Long id) {
 
         guiaService.eliminarArchivoS3(id);

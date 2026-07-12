@@ -37,7 +37,7 @@ public class TransportistaController {
 
     // POST - Crear transportista
     @PostMapping
-    public ResponseEntity<TransportistaResumenDTO> saveTransportista(
+    public ResponseEntity<String> saveTransportista(
             @RequestBody TransportistaDTO dto) {
 
         return ResponseEntity.status(201)
@@ -48,7 +48,7 @@ public class TransportistaController {
 
     // PUT - Modificar transportista
     @PutMapping("/{id}")
-    public ResponseEntity<TransportistaResumenDTO> updateTransportista(
+    public ResponseEntity<String> updateTransportista(
             @PathVariable Long id,
             @RequestBody TransportistaDTO dto) {
 
@@ -59,11 +59,9 @@ public class TransportistaController {
 
     // DELETE - Eliminar transportista
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTransportista(
+    public ResponseEntity<String> deleteTransportista(
             @PathVariable Long id) {
 
-        transportistaService.deleteTransportista(id);
-
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(transportistaService.deleteTransportista(id));
     }
 }
