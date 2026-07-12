@@ -1,6 +1,5 @@
 package com.duoc.transportmanagement.dto;
 
-import java.time.LocalDate;
 
 public class GuiaMessageDTO {
     private String operacion;
