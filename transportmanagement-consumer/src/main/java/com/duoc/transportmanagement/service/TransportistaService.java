@@ -36,7 +36,11 @@ public class TransportistaService {
     public TransportistaResumenDTO saveTransportista(TransportistaDTO dto) {
 
         Transportista transportista = new Transportista();
-
+        System.out.println("saveTransportista ");
+        System.out.println("Nombre: " + dto.getNombre());
+        System.out.println("Rut: " + dto.getRut());
+        System.out.println("Telefono: " + dto.getTelefono());
+        System.out.println("Correo: " + dto.getCorreo());
         transportista.setNombre(dto.getNombre());
         transportista.setRut(dto.getRut());
         transportista.setTelefono(dto.getTelefono());
