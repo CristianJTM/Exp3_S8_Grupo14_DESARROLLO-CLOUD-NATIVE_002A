@@ -92,7 +92,7 @@ public class GuiaService {
         GuiaMessageDTO mensaje =
                 new GuiaMessageDTO();
 
-        mensaje.setOperacion("SUBIR_S3");
+        mensaje.setOperacion("UPLOAD_S3");
         mensaje.setId(id);
 
         producer.sendMessage(mensaje);
@@ -132,7 +132,7 @@ public class GuiaService {
         GuiaMessageDTO mensaje =
                 new GuiaMessageDTO();
 
-        mensaje.setOperacion("ELIMINAR_S3");
+        mensaje.setOperacion("DELETE_S3");
         mensaje.setId(id);
 
         producer.sendMessage(mensaje);

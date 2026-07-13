@@ -34,10 +34,12 @@ public class GuiaConsumer {
                 break;
 
             case "UPLOAD_S3":
+                System.out.println("UPLOAD_S3");
                 guiaService.subirArchivoS3(dto.getId());
                 break;
 
             case "DELETE_S3":
+                System.out.println("DELETE_S3");
                 guiaService.eliminarArchivoS3(dto.getId());
                 break;
         }
