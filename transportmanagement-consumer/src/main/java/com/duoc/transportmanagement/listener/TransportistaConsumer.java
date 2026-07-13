@@ -16,6 +16,9 @@ public class TransportistaConsumer {
     @RabbitListener(queues = RabbitConstants.TRANSPORTISTA_QUEUE)
     public void receive(TransportistaMessageDTO dto){
 
+        System.out.println("Operacion: " + dto.getOperacion());
+        System.out.println("TransportistaDTO: " + dto.getTransportistaDTO());
+
         switch(dto.getOperacion()){
 
             case "CREATE":
