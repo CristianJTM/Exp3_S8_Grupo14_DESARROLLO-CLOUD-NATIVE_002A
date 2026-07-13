@@ -74,19 +74,6 @@ public class GuiaService {
         return consumerClient.findByTransportista(transportistaId);
     }
 
-    public String generarArchivo(Long id){
-
-        GuiaMessageDTO mensaje =
-                new GuiaMessageDTO();
-
-        mensaje.setOperacion("GENERAR_ARCHIVO");
-        mensaje.setId(id);
-
-        producer.sendMessage(mensaje);
-
-        return "Solicitud enviada a RabbitMQ";
-    }
-
     public String subirArchivoS3(Long id){
 
         GuiaMessageDTO mensaje =
@@ -115,16 +102,8 @@ public class GuiaService {
         return "Solicitud enviada a RabbitMQ";
     }
 
-    public String descargarArchivo(Long id){
-        GuiaMessageDTO mensaje =
-                new GuiaMessageDTO();
-
-        mensaje.setOperacion("DESCARGAR");
-        mensaje.setId(id);
-
-        producer.sendMessage(mensaje);
-
-        return "Solicitud enviada a RabbitMQ";
+    public byte[] descargarArchivo(Long id){
+        return consumerClient.descargarArchivo(id);
     }
 
     public String eliminarArchivoS3(Long id){

@@ -73,6 +73,16 @@ public class ConsumerClient {
         return response.getBody();
     }
 
+    public byte[] descargarArchivo(Long id) {
+        return restTemplate.exchange(
+                consumerUrl + "/api/guias/s3/" + id,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<byte[]>() {
+                }
+        ).getBody();
+    }
+
     // TRANSPORTISTAS
 
     public List<TransportistaResumenDTO> findAllTransportistas() {

@@ -110,7 +110,7 @@ public class GuiaController {
 
     // GET - Descargar archivo
     @GetMapping("/s3/{id}")
-    public ResponseEntity<String> descargarArchivo(
+    public ResponseEntity<byte[]> descargarArchivo(
             @PathVariable Long id) {
 
         return ResponseEntity.ok(
