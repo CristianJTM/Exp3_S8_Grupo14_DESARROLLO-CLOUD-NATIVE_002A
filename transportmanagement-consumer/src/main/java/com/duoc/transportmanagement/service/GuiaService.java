@@ -261,9 +261,11 @@ public class GuiaService {
                     guia.getRutaS3()
             );
         }
-
+        System.out.println("Actualizando archivo S3");
+        System.out.println("ID: " + id);
+        System.out.println("DTO: " + dto);
         updateGuia(id, dto);
-
+        System.out.println("Generando archivo");
         generarArchivo(id);
 
         return subirArchivoS3(id);

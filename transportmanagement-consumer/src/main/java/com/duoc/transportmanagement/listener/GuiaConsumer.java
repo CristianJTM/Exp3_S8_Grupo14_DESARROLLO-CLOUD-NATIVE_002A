@@ -35,11 +35,13 @@ public class GuiaConsumer {
 
             case "UPLOAD_S3":
                 System.out.println("UPLOAD_S3");
+                System.out.println("ID: " + dto.getId());
                 guiaService.subirArchivoS3(dto.getId());
                 break;
 
             case "UPDATE_S3":
                 System.out.println("UPDATE_S3");
+                System.out.println("ID: " + dto.getId());
                 guiaService.actualizarArchivoS3(dto.getId(), dto.getGuiaUpdate());
                 break;
 
