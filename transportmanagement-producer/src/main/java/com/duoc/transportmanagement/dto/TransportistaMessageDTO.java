@@ -27,7 +27,7 @@ public class TransportistaMessageDTO {
         return transportista;
     }
 
-    public void setTransportista(TransportistaDTO transportista) {
+    public void setTransportistaDTO(TransportistaDTO transportista) {
         this.transportista = transportista;
     }
 }

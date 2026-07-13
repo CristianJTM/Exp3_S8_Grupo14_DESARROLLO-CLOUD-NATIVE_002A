@@ -33,7 +33,7 @@ public class TransportistaService {
 
         TransportistaMessageDTO mensaje = new TransportistaMessageDTO();
         mensaje.setOperacion("CREATE");
-        mensaje.setTransportista(dto);
+        mensaje.setTransportistaDTO(dto);
 
         producer.sendMessage(mensaje);
 
@@ -48,7 +48,7 @@ public class TransportistaService {
 
         mensaje.setOperacion("UPDATE");
         mensaje.setId(id);
-        mensaje.setTransportista(dto);
+        mensaje.setTransportistaDTO(dto);
 
         producer.sendMessage(mensaje);
 
