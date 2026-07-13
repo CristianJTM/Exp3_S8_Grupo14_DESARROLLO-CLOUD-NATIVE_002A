@@ -16,8 +16,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.retry.interceptor.RetryOperationsInterceptor;
 
-import java.util.Map;
-
 @Configuration
 public class RabbitMQConfig {
 
@@ -179,17 +177,15 @@ public class RabbitMQConfig {
         factory.setConnectionFactory(connectionFactory);
         factory.setMessageConverter(messageConverter);
 
-        // Reintenta una sola vez.
-        // Si sigue fallando, rechaza el mensaje para que RabbitMQ
-        // lo envíe automáticamente a la Dead Letter Queue.
+        factory.setDefaultRequeueRejected(false);
+
         factory.setAdviceChain(retryInterceptor(rabbitTemplate));
 
         return factory;
     }
 
     @Bean
-    public RetryOperationsInterceptor retryInterceptor(
-            RabbitTemplate rabbitTemplate) {
+    public RetryOperationsInterceptor retryInterceptor(RabbitTemplate rabbitTemplate) {
 
         return RetryInterceptorBuilder.stateless()
                 .maxAttempts(1)
