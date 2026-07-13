@@ -106,7 +106,7 @@ public class GuiaService {
         GuiaMessageDTO mensaje =
                 new GuiaMessageDTO();
 
-        mensaje.setOperacion("ACTUALIZAR_S3");
+        mensaje.setOperacion("UPDATE_S3");
         mensaje.setId(id);
         mensaje.setGuiaUpdate(dto);
 
