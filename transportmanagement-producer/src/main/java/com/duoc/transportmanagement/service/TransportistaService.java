@@ -30,11 +30,14 @@ public class TransportistaService {
     }
 
     public String saveTransportista(TransportistaDTO dto) {
-
+        System.out.println("TeansportistaService.saveTransportista");
+        System.out.println(dto);
+        System.out.println(dto.getNombre());
         TransportistaMessageDTO mensaje = new TransportistaMessageDTO();
         mensaje.setOperacion("CREATE");
         mensaje.setTransportistaDTO(dto);
 
+        System.out.println(mensaje.getTransportistaDTO());
         producer.sendMessage(mensaje);
 
         return "Solicitud enviada a RabbitMQ";

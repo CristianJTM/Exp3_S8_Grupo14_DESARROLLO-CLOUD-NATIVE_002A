@@ -40,8 +40,7 @@ public class TransportistaController {
     public ResponseEntity<String> saveTransportista(
             @RequestBody TransportistaDTO dto) {
 
-        return ResponseEntity.status(201)
-                .body(
+        return ResponseEntity.ok(
                         transportistaService.saveTransportista(dto)
                 );
     }

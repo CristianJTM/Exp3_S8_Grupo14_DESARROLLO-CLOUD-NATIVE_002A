@@ -12,6 +12,13 @@ public class RabbitMQTransportistaProducer {
     private RabbitTemplate rabbitTemplate;
 
     public void sendMessage(TransportistaMessageDTO message){
+        System.out.println("========== MENSAJE A ENVIAR ==========");
+        System.out.println("Operacion: " + message.getOperacion());
+        System.out.println("Transportista: " + message.getTransportistaDTO());
+        if(message.getTransportistaDTO() != null){
+            System.out.println("Nombre: " + message.getTransportistaDTO().getNombre());
+        }
+
         try{
             rabbitTemplate.convertAndSend(
                     RabbitConstants.TRANSPORTISTA_QUEUE,
