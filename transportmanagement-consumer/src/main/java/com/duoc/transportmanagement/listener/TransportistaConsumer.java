@@ -38,7 +38,6 @@ public class TransportistaConsumer {
                             "Operación no soportada: " + dto.getOperacion());
             }
         }catch (Exception e){
-            System.err.println("Error procesando mensaje de transportista");
             e.printStackTrace();
 
             throw e;

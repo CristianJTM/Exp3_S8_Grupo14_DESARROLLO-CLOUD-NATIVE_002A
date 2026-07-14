@@ -51,7 +51,6 @@ public class GuiaConsumer {
                     throw new IllegalArgumentException("Operación no válida: " + dto.getOperacion());
             }
         } catch (Exception e) {
-            System.err.println("Error procesando mensaje de guía");
             e.printStackTrace();
             throw e;
         }

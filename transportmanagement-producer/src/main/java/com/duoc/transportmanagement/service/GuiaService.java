@@ -39,7 +39,7 @@ public class GuiaService {
 
         producer.sendMessage(mensaje);
 
-        return "Solicitud enviada a RabbitMQ";
+        return "Solicitud para crear la guia enviada a RabbitMQ";
     }
 
     public String updateGuia(Long id, GuiaUpdateDTO dto) {
@@ -53,7 +53,7 @@ public class GuiaService {
 
         producer.sendMessage(mensaje);
 
-        return "Solicitud enviada a RabbitMQ";
+        return "Solicitud para actualizar la guia enviada a RabbitMQ";
     }
 
     public String deleteGuia(Long id) {
@@ -66,7 +66,7 @@ public class GuiaService {
 
         producer.sendMessage(mensaje);
 
-        return "Solicitud enviada a RabbitMQ";
+        return "Solicitud para eliminar la guia enviada a RabbitMQ";
     }
 
     public List<GuiaResumenDTO> findByTransportista(Long transportistaId){
@@ -84,7 +84,7 @@ public class GuiaService {
 
         producer.sendMessage(mensaje);
 
-        return "Solicitud enviada a RabbitMQ";
+        return "Solicitud para subir archivo a S3 enviada a RabbitMQ";
     }
 
     public String actualizarArchivoS3(Long id, GuiaUpdateDTO dto){
@@ -99,7 +99,7 @@ public class GuiaService {
 
         producer.sendMessage(mensaje);
 
-        return "Solicitud enviada a RabbitMQ";
+        return "Solicitud para actualizar archivo en S3 enviada a RabbitMQ";
     }
 
     public byte[] descargarArchivo(Long id){
@@ -116,6 +116,6 @@ public class GuiaService {
 
         producer.sendMessage(mensaje);
 
-        return "Solicitud enviada a RabbitMQ";
+        return "Solicitud para eliminar archivo en S3 enviada a RabbitMQ";
     }
 }
