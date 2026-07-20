@@ -21,9 +21,7 @@ import java.util.Map;
 @Configuration
 public class RabbitMQConfig {
 
-    // ===========================
-    // GUIAS
-    // ===========================
+
 
     @Bean
     public DirectExchange guiaExchange() {
